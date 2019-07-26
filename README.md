@@ -16,7 +16,6 @@ Music recognizer  is an app developed using **angular front-end & node js back-e
  - run **npm i** inside the project directory 
  - run **ng serve -o**
  - make sure server back-end app is running
- - 
 ## Screenshots
 ![enter image description here](https://imgur.com/PZJ0jS8.jpg)
 ![enter image description here](https://imgur.com/MZrucC2.jpg)
