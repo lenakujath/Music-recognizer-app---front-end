@@ -1,27 +1,23 @@
-# Musicreco
+# Music recognizer app - front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+Music recognizer  is an app developed using **angular front-end & node js back-end** that takes **YouTube music videos** as input and recognize the name of the song and will fetch a list of **other songs by the same artist** (from YouTube).
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Requirements
 
-## Code scaffolding
+ - [angular cli](https://cli.angular.io/)
+ - [node js & npm](https://nodejs.org/en/) 
+ - [Youtube api key](https://developers.google.com/youtube/v3/getting-started)
+ - Music recognizer app- back-end : **Check My Github**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How To Install
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ - Get the api key from above and put it inside **src--app--app.component.ts**
+ - run **npm i** inside the project directory 
+ - run **ng serve -o**
+ - make sure server back-end app is running
+ - 
+## Screenshots
+![enter image description here](https://imgur.com/PZJ0jS8.jpg)
+![enter image description here](https://imgur.com/MZrucC2.jpg)
+![enter image description here](https://imgur.com/zwlFF7K.jpg)

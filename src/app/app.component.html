@@ -1,21 +1,59 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<section class="hero is-primary is-medium" style="background: #212121">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <img src="../assets/music.svg" width="100px" height="100px">
+      <h1 class="title">
+        Hello There!, its me Song Recognition <i class="fas fa-headphones-alt"></i>
+      </h1>
+      <h2 class="subtitle">
+        Paste any youtube Song video to know it artist info and other related songs
+      </h2>
+    </div>
+    <div style="margin: 30px">
+      <div class="container has-text-centered" style="text-align: center">
+        <input style="width: 50%; max-width: 50%;; margin:5px" class="input is-danger is-rounded" type="text"
+          placeholder="Youtube Link!" [(ngModel)]="url">
+        <a (click)="check(url)" style="margin:5px" class="button is-danger is-rounded"> Check <i style="padding:3px"
+            class="fas fa-check"></i></a>
+        <a *ngIf="is_yt" (click)="process(url)" style="margin:5px" class="button is-danger is-rounded">Process <i
+            style="padding:3px" class="fas fa-sync"></i></a>
+        <a *ngIf="showInfo" (click)="search()" style="margin:5px" class="button is-danger is-rounded">Get Songs <i
+            style="padding:3px" class="fab fa-youtube"></i></a>
+      </div><br>
+      <div style="margin: 20px" class="container has-text-centered" style="text-align: center">
+        <youtube-player *ngIf="showInfo" [videoId]="youtube_parser(url)">
+        </youtube-player>
+      </div>
+      <div *ngIf="showInfo" style="margin: 20px" class="container has-text-centered"
+        style="text-align: center; color: white">
+        <h1 class="infz" style="font-weight: bold">Album: <span>{{album}}</span></h1>
+        <h1 class="infz" style="font-weight: bold">Artist: <span>{{artist}}</span></h1>
+        <h1 class="infz" style="font-weight: bold">Label: <span>{{label}}</span></h1>
+        <h1 class="infz" style="font-weight: bold">Release Date: <span>{{release_date}}</span></h1>
+        <h1 class="infz" style="font-weight: bold">Title: <span>{{title}}</span></h1>
+      </div>
+      <div *ngIf="songfailed" style="margin: 20px" class="container has-text-centered" style="text-align: center"> <br>
+        <h1 class="subtitle">Ops :( We Can't Recognition The Song, sorry</h1>
+      </div>
+      <div *ngIf="gotVid" class="row">
+        <div class="col-xl-3 col-md-6 mb-4" *ngFor="let video of youtubedata">
+          <youtube-player style="padding:5px" [videoId]="video.id.videoId">
+          </youtube-player>
+          <p class="card-category text-gray">{{video.snippet.title}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container has-text-centered" style="color:#ccc">
+    <p>This Challenge has been developed by Rami Saad @ProximaDev</p>
+  </div>
+</footer>
+
+<ngx-spinner bdOpacity=0.9 bdColor="rgba(51,51,51,0.53)" size="medium" color="#ffffff" type="pacman"
+  [fullScreen]="true">
+  <p style="color: white; font-weight: bold"> {{loading}} </p>
+</ngx-spinner>
 
 <router-outlet></router-outlet>
