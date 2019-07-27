@@ -144,6 +144,7 @@ export class AppComponent {
       } else {
         this.songfailed = true;
         this.showInfo = false;
+		this.gotVid = false;
         this.toast.error("We can't recoginztion this song", "Recoginztion Failed");
       }
     });
